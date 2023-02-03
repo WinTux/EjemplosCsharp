@@ -87,10 +87,35 @@ namespace cosa
             Console.WriteLine("Fin de ejemplo try-catch");
 
             Console.WriteLine("ARREGLOS");
+            //Unidimensional
+            int[] nums = new int[4];
+            nums[0] = 12;
+            nums[1] = 56;
+            nums[2] = 0;
+            nums[3] = -23;
+            num = nums[2] + 3;
 
+            //Bidimensional
+            string[,] matriz = new string[2,3];//[fila][columna]
+            matriz[0,0] = "Texto";
+            matriz[1,2] = "Maximo";
+            //matriz[2][1] = "Valor";//está mal
 
+            //Tridimensionales
+            float[,,] cubo = new float[3,2,2];//[lado][alto][produndidad]
+            cubo[2,1,1] = 34.6f;
+
+            //Multidiemsional - n-dimensional
+            int[,,,,,,,] octo_path_traveler = new int[3,4,5,6,7,8,2,10];
+            octo_path_traveler[0, 0, 0, 0, 0, 0, 0, 1] = 56;
+            Console.WriteLine("El resultado es: " + (octo_path_traveler[0, 0, 0, 0, 0, 0, 0, 1] + cubo[2, 1, 1] - 1));
             #endregion
-
+            int numero_grandote = 2147483647;
+            numero_grandote = numero_grandote + 1;
+            Console.WriteLine(numero_grandote);
+            #region condicionales
+            Console.WriteLine("Condicionales");
+            #endregion
         }
     }
 }
