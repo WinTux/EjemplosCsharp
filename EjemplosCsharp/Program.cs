@@ -115,6 +115,112 @@ namespace cosa
             Console.WriteLine(numero_grandote);
             #region condicionales
             Console.WriteLine("Condicionales");
+            //Simple
+            bool esEmpleado;// true | false
+            esEmpleado = true;
+
+            if (!esEmpleado) {
+                Console.WriteLine("Claro que es empleado, hast ala pregunta ofende");
+                int xx = 24;
+                Console.WriteLine(xx / 3 * 2);
+            }
+            //Compuesta
+            if (!(num > 2 || num2 < 80)) Console.WriteLine("num es mayor a 2 y algo más");
+
+            else Console.WriteLine("no se que valor tiene num pero acá te lo dejo:" + num);
+
+            if (esEmpleado)
+            {
+                if (!(num < 10))
+                {
+                    Console.WriteLine("Es empleado y su numero es menor a 10");
+                }
+                else
+                {
+                    Console.WriteLine("Es empleado pero su numero es mayor o igual a 10");
+                }
+            }
+            else
+            {
+                Console.WriteLine("no es empleado, nada que decir al respecto.");
+            }
+
+            /*
+             p: pepe tiene 10 años
+             q: pepe estudia en la escuela de la zona
+             r: num es menor a 10
+
+            p ^ q
+            p v q
+            ¬p
+            p => q
+            (¬p ^ (p v q)) => ¬(p v q) 
+             */
+
+            Console.WriteLine("Continuamos con la ejecución como es habitual.");
+
+            //Switch
+            int num_dia = 6;
+            if (num_dia == 1)
+                Console.WriteLine("Lunes");
+            else
+                if (num_dia == 2)
+                Console.WriteLine("Martes");
+            else
+                    if (num_dia == 3)
+                Console.WriteLine("Miercoles");
+            else
+                        if (num_dia == 4)
+                Console.WriteLine("Jueves");
+            else
+                            if (num_dia == 5)
+                Console.WriteLine("Viernes");
+            else
+                                if (num_dia == 6)
+                Console.WriteLine("Sabado");
+            else
+                                    if (num_dia == 7)
+                Console.WriteLine("Domingo");
+            else Console.WriteLine("No es un numero valido");
+
+            switch (num_dia) {
+                case 1:
+                    Console.WriteLine("Lunes");
+                    break;
+                case 2:
+                    Console.WriteLine("Martes");
+                    break;
+                case 3:
+                    Console.WriteLine("Miercoles");
+                    break;
+                case 4:
+                    Console.WriteLine("Jueves");
+                    break;
+                case 5:
+                    Console.WriteLine("Viernes");
+                    break;
+                case 6:
+                    Console.WriteLine("Sabado");
+                    break;
+                case 7:
+                    Console.WriteLine("Domingo");
+                    break;
+                default:
+                    Console.WriteLine("No es un numero valido");
+                    break;
+            }
+
+            #endregion
+
+            #region iteraciones
+            Console.WriteLine("Iteraciones");
+            //While (mientras)
+            int contador = 5;
+            while (contador > 0) {
+                Console.WriteLine(contador);
+                contador--;
+            }
+            Console.WriteLine("Ufff se terminó");
             #endregion
         }
     }
