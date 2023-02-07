@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace cosa
 {
@@ -218,8 +219,59 @@ namespace cosa
             int contador = 5;
             while (contador > 0) {
                 Console.WriteLine(contador);
-                contador--;
+                --contador;//primero decrementa, luego usa.
+                contador--;//primero lo usa, luego lo decrenta.
             }
+
+            int c = 10;
+            Console.WriteLine(c);   //10
+            Console.WriteLine(c++); //10
+            Console.WriteLine(c);   //11
+            Console.WriteLine(++c); //12
+            Console.WriteLine(c);   //12
+
+            int[,] mtx = new int[3, 5];
+            int fila, columna;
+            fila = 0; columna = 0;
+            while (fila <= 4) {
+                columna = 0;
+                while (columna <= 2) {
+                    mtx[columna++,fila] = 1;
+                }
+                fila++;
+            }
+
+            //Mostrando la matriz:
+            
+            fila = 0;
+            while (fila <= 4)
+            {
+                columna = 0;
+                while (columna <= 2)
+                {
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("[" + mtx[columna++,fila] + "]");
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                Console.WriteLine();
+                fila++;
+            }
+
+            bool yaPaso = false;
+
+            //FOR (para)
+            for (int i = 2; i <= 10; i+=2) { // i++ i-- i+=3 i = i +3;
+                Console.WriteLine("Hola " + i);
+                if(!yaPaso && i >5)
+                {
+                    i = -3;
+                    yaPaso = true;
+                }
+            }
+
+
             Console.WriteLine("Ufff se terminó");
             #endregion
         }
