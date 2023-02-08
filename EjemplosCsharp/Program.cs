@@ -8,6 +8,18 @@ namespace cosa
         static int numero_global;
         static void Main(string[] args)
         {
+            switch (args[0]) {
+                case "==version":
+                    Console.WriteLine("La version de mi programa es la v1.0.1");
+                    break;
+                case "-hack":
+                    Console.WriteLine("Hackeando la " + args[1]);
+                    break;
+                default:
+                    Console.WriteLine("NO SE RECONOCE EL COMANDO");
+                    break;
+            }
+
             #region todo hasta el martes
 
             #region lunes
@@ -262,7 +274,8 @@ namespace cosa
             bool yaPaso = false;
 
             //FOR (para)
-            for (int i = 2; i <= 10; i+=2) { // i++ i-- i+=3 i = i +3;
+            int i = -3550;
+            for (i = 2; i <= 10; i+=2) { // i++ i-- i+=3 i = i +3;
                 Console.WriteLine("Hola " + i);
                 if(!yaPaso && i >5)
                 {
@@ -271,17 +284,67 @@ namespace cosa
                 }
             }
 
+            //do while
+            do {
+                Console.WriteLine("Mira que la variable fila tiene el valor: " + fila);
+            } while (fila <= 4);
+
+
+            ///Encontrar donde está el valor 100
+            ///
+            int[] arreglo = new int[4];
+            arreglo[0] = arreglo[1] = arreglo[2] = arreglo[3] = 0;
+            arreglo[0] = 100;
+
+            int indice_respuesta = -1;
+            for (i= 0; i < 4; i++) {
+                if (arreglo[i] == 100)
+                {
+                    indice_respuesta = i;
+                    break;
+                }
+            }
+            if(indice_respuesta >-1)
+                Console.WriteLine("El num 100 está en el indice " + indice_respuesta);
+            else
+                Console.WriteLine("No se encontró el 100 en todo el arreglo");
+
 
             Console.WriteLine("Ufff se terminó");
+
+
+
+            #endregion
+
+            #region OOP
+
+            //Clase
+
+
             #endregion
         }
+    }
+
+    public class A {
+        public int Sumar(int a, int b) {
+            int res = a + b;
+            return res;
+        }
+    
     }
 }
 
 namespace otroNombre
 {
+
     namespace unoDentro
     {
+        public class B { 
         
+        }
+    }
+
+    public class C { 
+    
     }
 }
