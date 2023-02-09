@@ -22,10 +22,19 @@ namespace SeresVivos
             cantOrejas = 2;
             cantDedos = 10;
         }
+        public SerHumano(int cOjos)
+        {
+            cantOjos = cOjos;
+            cantOrejas = 22;
+            cantDedos = 10;
+        }
         public void EmitirSonido() {
             Console.WriteLine("ho la");
         }
-
+        public void EmitirSonido(int x)
+        {
+            Console.WriteLine("ho la");
+        }
         public int RetornarCantidadOjos() {
             return cantOjos;//Retorno por valor
         }

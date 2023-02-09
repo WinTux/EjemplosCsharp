@@ -361,7 +361,7 @@ namespace otroNombre
     public class Persona : SerHumano {
         string nombre;
         int edad;
-        public Persona() {
+        public Persona() : base() {
             nombre = "N/A";
             edad = 18;
         }
