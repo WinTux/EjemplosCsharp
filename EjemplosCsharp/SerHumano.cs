@@ -2,20 +2,33 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EjemplosCsharp
+namespace SeresVivos
 {
     public class SerHumano
     {
-        int cantOjos = 2;
-        int cantOrejas;
-        int cantDedos;
+        private int cantOjos;
+        public int cantidadOjos { 
+            get { return cantOjos; }
+            set { 
+                if(value <= 2 && value >= 0)
+                    cantOjos = value; 
+            }
+        }
+        public int cantOrejas;
+        public  int cantDedos;
 
+        public SerHumano() {
+            cantOjos = 2;
+            cantOrejas = 2;
+            cantDedos = 10;
+        }
         public void EmitirSonido() {
             Console.WriteLine("ho la");
         }
 
         public int RetornarCantidadOjos() {
-            return cantOjos;
+            return cantOjos;//Retorno por valor
         }
     }
+    public class Toro { }
 }

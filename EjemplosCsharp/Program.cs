@@ -1,4 +1,6 @@
-﻿using System;
+﻿using otroNombre;
+using SeresVivos;
+using System;
 using System.Drawing;
 
 namespace cosa
@@ -8,6 +10,7 @@ namespace cosa
         static int numero_global;
         static void Main(string[] args)
         {
+            /*
             switch (args[0]) {
                 case "==version":
                     Console.WriteLine("La version de mi programa es la v1.0.1");
@@ -19,7 +22,7 @@ namespace cosa
                     Console.WriteLine("NO SE RECONOCE EL COMANDO");
                     break;
             }
-
+            */
             #region todo hasta el martes
 
             #region lunes
@@ -319,8 +322,19 @@ namespace cosa
             #region OOP
 
             //Clase
+            SerHumano ser01 = new SerHumano();//Crear una instancia
+            otroNombre.unoDentro.B unObjetoB = new otroNombre.unoDentro.B();//ojo, tiene explicación
+            int cant = ser01.RetornarCantidadOjos();
+            Console.WriteLine("El ser humano tiene " + cant + " ojos.");
+            ser01.cantidadOjos = -5;
+            
+            ser01.cantOrejas = -4;
+            cant = ser01.RetornarCantidadOjos();
+            Console.WriteLine("El ser humano tiene " + cant + " ojos.");
 
-
+            Persona per01 = new Persona();
+            per01.DecirNombre();
+            per01.EmitirSonido();
             #endregion
         }
     }
@@ -344,7 +358,15 @@ namespace otroNombre
         }
     }
 
-    public class C { 
-    
+    public class Persona : SerHumano {
+        string nombre;
+        int edad;
+        public Persona() {
+            nombre = "N/A";
+            edad = 18;
+        }
+        public void DecirNombre() {
+            Console.WriteLine("Hola, mi nombre es " + nombre + " y tengo " + cantidadOjos + " ojos");
+        }
     }
 }
