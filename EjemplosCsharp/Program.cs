@@ -1,4 +1,5 @@
 ﻿using otroNombre;
+using otroNombre.unoDentro;
 using SeresVivos;
 using System;
 using System.Drawing;
@@ -335,6 +336,45 @@ namespace cosa
             Persona per01 = new Persona();
             per01.DecirNombre();
             per01.EmitirSonido();
+
+            Empleado empA = new Empleado();
+            empA.EmitirSonido();
+            empA.DecirNombre();
+            empA.Trabajar();
+
+            Persona per02 = new Empleado();
+            SerHumano ser02 = new Empleado();
+            SerHumano ser03 = new Persona();
+
+            int numEntero = (int)10.531f;
+            Empleado empB = (Empleado)per02;//CAST
+
+            empA.DecirCargo();
+            empB.DecirCargo();
+
+
+            // Pase por referencia
+            Empleado empC = empA;
+            empA.DecirCargo();//El cargo del empleado A
+            empC.DecirCargo();//El cargo del empleado C
+            empA.cargo = "Jefe de Sistemas";
+            empA.DecirCargo();//El cargo del empleado A
+            empC.DecirCargo();//El cargo del empleado C
+
+            Console.WriteLine("Copiando con pases por valor:");
+            // Realizar copia (evitar referencia)
+            Empleado empD = new Empleado();
+            empD.cargo = empA.cargo;//pase por valor
+            empD.NIT = empA.NIT;//Pase por valor
+
+            empA.DecirCargo();//El cargo del empleado A
+            empD.DecirCargo();//El cargo del empleado D
+            empA.cargo = "Auxiliar de desarrollo";
+            empA.DecirCargo();//El cargo del empleado A
+            empD.DecirCargo();//El cargo del empleado D
+
+            //Interfaces (polimorfismo)
+
             #endregion
         }
     }
@@ -356,11 +396,28 @@ namespace otroNombre
         public class B { 
         
         }
+
+        public class Empleado : Persona{
+            public string cargo;
+            public int NIT;
+            public Empleado() {
+                cargo = "Pasante";
+                NIT = -1;
+            }
+            
+            public void Trabajar() {
+                Console.WriteLine("Trabajo muy duro, como un esclavo");
+            }
+            public void DecirCargo() {
+                Console.WriteLine("Mi cargo es " + cargo);
+            }
+        }
     }
 
     public class Persona : SerHumano {
         string nombre;
         int edad;
+        int ci;
         public Persona() : base() {
             nombre = "N/A";
             edad = 18;
