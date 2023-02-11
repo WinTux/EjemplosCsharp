@@ -3,6 +3,7 @@ using otroNombre.unoDentro;
 using SeresVivos;
 using System;
 using System.Drawing;
+using super_interfaces;
 
 namespace cosa
 {
@@ -374,7 +375,33 @@ namespace cosa
             empD.DecirCargo();//El cargo del empleado D
 
             //Interfaces (polimorfismo)
+            Rectangulo rec01 = new Rectangulo(4.2f, 5.0f);
+            Circulo cir01 = new Circulo(4.1f);
+            Triangulo tri01 = new Triangulo(4f, 5f);
+            rec01.DecirMiTipo();
+            Console.WriteLine(
+                "Altura: "+rec01.RetornarAltura() + "; Área: " + rec01.RetornarArea());
+            cir01.DecirMiTipo();
+            Console.WriteLine(
+                "Altura: " + cir01.RetornarAltura() + "; Área: " + cir01.RetornarArea());
+            tri01.DecirMiTipo();
+            Console.WriteLine(
+                "Altura: " + tri01.RetornarAltura() + "; Área: " + tri01.RetornarArea());
 
+            IFiguraGeometrica figura = new Triangulo(2f, 2f);
+            IFiguraGeometrica[] figuras = new IFiguraGeometrica[4];
+            figuras[0] = rec01;
+            figuras[1] = tri01;
+            figuras[2] = cir01;
+            figuras[3] = new Circulo(6.03f);
+            Console.WriteLine("=================\nFiguras geométricas en un arreglo");
+            for ( i = 0; i < 4; i++)
+            {
+                figuras[i].DecirMiTipo();
+                Console.WriteLine(
+                    "Altura: " + figuras[i].RetornarAltura() + "; Área: " + figuras[i].RetornarArea());
+
+            }
             #endregion
         }
     }
@@ -393,8 +420,32 @@ namespace otroNombre
 
     namespace unoDentro
     {
-        public class B { 
-        
+        public class B : Persona, ICualquiera, IFiguraGeometrica
+        {
+            public void DecirAlgo()
+            {
+                Console.WriteLine("Soy un objeto de tipo B");
+            }
+
+            public void DecirMiTipo()
+            {
+                throw new NotImplementedException();
+            }
+
+            public float RetornarAltura()
+            {
+                throw new NotImplementedException();
+            }
+
+            public float RetornarArea()
+            {
+                throw new NotImplementedException();
+            }
+
+            public string RetornarSaludo(string nom)
+            {
+                return "Hola, me llamo " + nom;
+            }
         }
 
         public class Empleado : Persona{
